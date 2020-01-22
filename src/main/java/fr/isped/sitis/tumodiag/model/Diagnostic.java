@@ -18,12 +18,10 @@ public class Diagnostic {
     private Long id;
 
     @NotNull
-    private Long dp;
+    private String dp;
 
-    @NotNull
-    private Long dr;
+    private String dr;
 
-    @NotNull
     private String das;
 
 

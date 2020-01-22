@@ -1,6 +1,7 @@
 package fr.isped.sitis.tumodiag.model;
 
 import lombok.Data;
+import lombok.NonNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -15,8 +16,12 @@ public class Cancer {
     private Long id;
 
     @NotNull
-    private String topoIACR;
+    @NonNull
+    private Long numPatient;
 
     @NotNull
-    private String morphoIACR;
+    private Integer topoIACR;
+
+    @NotNull
+    private Integer morphoIACR;
 }

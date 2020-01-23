@@ -10,9 +10,9 @@ Insert Into `Cim10` (`id`, `dp`, `dr`, `das`, `trait_id`) VALUES
 (3, 'I64', null, 'I65.2', 100578);
 
 Insert Into `Adicap` (`id`, `adicap1`, `adicap2`, `trait_id`) VALUES
-(1, 'C04.1', null, 100130),
-(2, 'Z511', 'C761', 100324),
-(3, 'I64', null, 100578);
+(1, 'BHOTE4P1', null, 100130),
+(2, 'BHBXE7A0', 'C761', 100324),
+(3, 'PHUVU7H3', null, 100578);
 
 Insert Into `Patient` (`id`, `doublon`, `trait_id`) VALUES
 (1, false, 100130),

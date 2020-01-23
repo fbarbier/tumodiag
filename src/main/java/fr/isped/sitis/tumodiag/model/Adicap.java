@@ -1,6 +1,9 @@
 package fr.isped.sitis.tumodiag.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -17,7 +20,12 @@ public class Adicap {
     @NotNull
     private String adicap1;
 
-    @NotNull
     private String adicap2;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "trait_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private Trait trait;
 
 }

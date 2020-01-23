@@ -45,9 +45,8 @@ public class DiagnosticController {
         }
 
         return diagnosticRepository.findById(diagnosticId).map(diagnostic -> {
-            diagnostic.setDp(diagnosticRequest.getDp());
-            diagnostic.setDr(diagnosticRequest.getDr());
-            diagnostic.setDas(diagnosticRequest.getDas());
+            diagnostic.setMorpho(diagnosticRequest.getMorpho());
+            diagnostic.setTopo(diagnosticRequest.getTopo());
             return diagnosticRepository.save(diagnostic);
         }).orElseThrow(() -> new ResourceNotFoundException("DiagnosticId " + diagnosticId + "not found"));
     }

@@ -5,6 +5,7 @@ import lombok.NonNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 @Data
 @Entity
@@ -16,12 +17,11 @@ public class Cancer {
     private Long id;
 
     @NotNull
-    @NonNull
-    private Long numPatient;
-
-    @NotNull
     private Integer topoIACR;
 
     @NotNull
     private Integer morphoIACR;
+
+    @ManyToMany(mappedBy = "hasCancerPrimaire")
+    Set<Patient> hasPatient;
 }

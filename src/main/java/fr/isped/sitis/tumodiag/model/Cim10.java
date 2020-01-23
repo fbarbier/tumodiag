@@ -10,21 +10,23 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
-@Table(name = "diagnostic")
-public class Diagnostic {
+@Table(name = "cim10")
+public class Cim10 {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    private String topo;
+    private String dp;
 
-    private String morpho;
+    private String dr;
+
+    private String das;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "patient_id", nullable = false)
+    @JoinColumn(name = "trait_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private Patient patient;
+    private Trait trait;
 }

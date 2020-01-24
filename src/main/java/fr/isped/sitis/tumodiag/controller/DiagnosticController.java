@@ -2,8 +2,8 @@ package fr.isped.sitis.tumodiag.controller;
 
 import fr.isped.sitis.tumodiag.exception.ResourceNotFoundException;
 import fr.isped.sitis.tumodiag.model.Diagnostic;
-import fr.isped.sitis.tumodiag.repository.PatientRepository;
 import fr.isped.sitis.tumodiag.repository.DiagnosticRepository;
+import fr.isped.sitis.tumodiag.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

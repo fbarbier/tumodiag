@@ -25,8 +25,8 @@ public class Cim10 {
     private String das;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "trait_id", nullable = false)
+    @JoinColumn(name = "diagnostic_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private Trait trait;
+    private Diagnostic diagnostic;
 }

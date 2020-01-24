@@ -81,22 +81,22 @@ INSERT INTO "public"."patient_primary_cancer" VALUES
 (2, 4),
 (3, 5),
 (3, 6);           
-CREATE MEMORY TABLE "public"."trait"(
+CREATE MEMORY TABLE "public"."patient"(
     "id" BIGINT NOT NULL,
     "date_naissance" DATE NOT NULL,
     "nom" VARCHAR(100) NOT NULL,
     "prenom" VARCHAR(100) NOT NULL,
     "sexe" INTEGER NOT NULL
 );        
-ALTER TABLE "public"."trait" ADD CONSTRAINT "public"."CONSTRAINT_6" PRIMARY KEY("id");         
--- 3 +/- SELECT COUNT(*) FROM public.trait;    
-INSERT INTO "public"."trait" VALUES
+ALTER TABLE "public"."patient" ADD CONSTRAINT "public"."CONSTRAINT_6" PRIMARY KEY("id");
+-- 3 +/- SELECT COUNT(*) FROM public.patient;
+INSERT INTO "public"."patient" VALUES
 (100130, DATE '2003-09-27', 'ELOSTE', 'JAMES', 1),
 (100324, DATE '1970-12-18', 'RIRKIA', 'SIMONE', 2),
 (100578, DATE '1955-10-02', 'FROIRE', 'JACQUELINE', 2);             
-ALTER TABLE "public"."adicap" ADD CONSTRAINT "public"."fk5rlvwu38trvy264tsbejru1wu" FOREIGN KEY("trait_id") REFERENCES "public"."trait"("id") ON DELETE CASCADE NOCHECK;       
-ALTER TABLE "public"."cim10" ADD CONSTRAINT "public"."fkngayajyrv0xy714eum1v68jdb" FOREIGN KEY("trait_id") REFERENCES "public"."trait"("id") ON DELETE CASCADE NOCHECK;        
+ALTER TABLE "public"."adicap" ADD CONSTRAINT "public"."fk5rlvwu38trvy264tsbejru1wu" FOREIGN KEY("trait_id") REFERENCES "public"."patient"("id") ON DELETE CASCADE NOCHECK;
+ALTER TABLE "public"."cim10" ADD CONSTRAINT "public"."fkngayajyrv0xy714eum1v68jdb" FOREIGN KEY("trait_id") REFERENCES "public"."patient"("id") ON DELETE CASCADE NOCHECK;
 ALTER TABLE "public"."patient_primary_cancer" ADD CONSTRAINT "public"."fk26m4hpd8hkio4cpyyxy4pn814" FOREIGN KEY("patient_id") REFERENCES "public"."patient"("id") NOCHECK;     
-ALTER TABLE "public"."patient" ADD CONSTRAINT "public"."fk3p6a5y5rxbro6rwq7n3qcm8se" FOREIGN KEY("trait_id") REFERENCES "public"."trait"("id") NOCHECK;        
+ALTER TABLE "public"."patient" ADD CONSTRAINT "public"."fk3p6a5y5rxbro6rwq7n3qcm8se" FOREIGN KEY("trait_id") REFERENCES "public"."patient"("id") NOCHECK;
 ALTER TABLE "public"."diagnostic" ADD CONSTRAINT "public"."fk1oe3f0q2303ugfvswtpx61rho" FOREIGN KEY("patient_id") REFERENCES "public"."patient"("id") ON DELETE CASCADE NOCHECK;               
 ALTER TABLE "public"."patient_primary_cancer" ADD CONSTRAINT "public"."fkduc6o66pfk5xfeaj33dlw0ct8" FOREIGN KEY("cancer_id") REFERENCES "public"."cancer"("id") NOCHECK;       

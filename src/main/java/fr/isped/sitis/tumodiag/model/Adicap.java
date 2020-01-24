@@ -23,9 +23,9 @@ public class Adicap {
     private String adicap2;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "trait_id", nullable = false)
+    @JoinColumn(name = "diagnostic_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    private Trait trait;
+    private Diagnostic diagnostic;
 
 }

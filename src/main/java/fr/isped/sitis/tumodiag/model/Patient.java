@@ -1,41 +1,45 @@
 package fr.isped.sitis.tumodiag.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Entity
-@Table(name = "patient")
 public class Patient {
-
+    // correspond au NumPatient
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
 
     @NotNull
     @NonNull
-    private Boolean doublon;
+    private Long numPatient;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "trait_id", nullable = false)
-    @JsonIgnore
-    private Trait trait;
+    @NotNull
+    @NonNull
+    private Integer sexe;
 
-    @ManyToMany
-    @JoinTable(
-            name = "patient_primary_cancer",
-            joinColumns = @JoinColumn(name = "patient_id"),
-            inverseJoinColumns = @JoinColumn(name = "cancer_id"))
-    Set<Cancer> hasCancerPrimaire;
+    @NotNull
+    @NonNull
+    private java.sql.Date dateNaissance;
+
+    @NotNull
+    @NonNull
+    @Size(max=100)
+    private String prenom;
+
+    @NotNull
+    @NonNull
+    @Size(max=100)
+    private String nom;
 
 }
-

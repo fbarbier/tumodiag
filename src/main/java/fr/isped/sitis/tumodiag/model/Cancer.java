@@ -1,7 +1,10 @@
 package fr.isped.sitis.tumodiag.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NonNull;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -22,6 +25,9 @@ public class Cancer {
     @NotNull
     private Integer morphoIACR;
 
-    @ManyToMany(mappedBy = "hasCancerPrimaire")
-    Set<Patient> hasPatient;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "patient_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private Patient patient;
 }

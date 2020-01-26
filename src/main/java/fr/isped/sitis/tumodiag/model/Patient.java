@@ -42,4 +42,8 @@ public class Patient {
     @Size(max=100)
     private String nom;
 
+    @NotNull
+    @NonNull
+    private Boolean freeze;
+
 }

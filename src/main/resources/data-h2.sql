@@ -1,8 +1,13 @@
 
-INSERT INTO `Patient` (`id`, `num_patient`, `sexe`, `date_naissance`, `prenom`, `nom`) VALUES
-(1, 100130, 1, '2003-09-27', 'JAMES', 'ELOSTE'),
-(2, 100324, 2, '1970-12-18', 'SIMONE', 'RIRKIA'),
-(3, 100578, 2, '1955-10-02', 'JACQUELINE', 'FROIRE');
+INSERT INTO `Patient` (`id`, `num_patient`, `sexe`, `date_naissance`, `prenom`, `nom`, `freeze`) VALUES
+(1, 100130, 1, '2003-09-27', 'JAMES', 'ELOSTE', 0),
+(2, 100324, 2, '1970-12-18', 'SIMONE', 'RIRKIA', 0),
+(3, 100578, 2, '1955-10-02', 'JACQUELINE', 'FROIRE', 0),
+(4, 900578, 2, '1955-10-02', 'JACQUELIN', 'FRIORE', 1);
+
+Insert Into `Relationship` (`id`, `relatingid`, `relatedid`, `patient_id`) VALUES
+(1, 100578, 900578, 3);
+
 
 Insert Into `Diagnostic` (`id`, `topo`, `morpho`, `patient_id`) VALUES
 (1, 'C443', '80003', 1),
